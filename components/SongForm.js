@@ -20,17 +20,16 @@ class SongForm extends React.Component {
         });
       }
 
-      handleClick(event) {
-        event.preventDefault();
-        const id = Math.random().toString(16).substr(2, 6);
-        const newSong = {
-          id: id,
-          title: this.state.title,
-          artist: this.state.artist,
-          genre: this.state.artist,
-          rating: this.state.rating,
-          
-        };
+    handleClick(event) {
+    event.preventDefault();
+    const id = Math.random().toString(16).substr(2, 6);
+    const newSong = {
+        id: id,
+        title: this.state.title,
+        artist: this.state.artist,
+        genre: this.state.artist,
+        rating: this.state.rating,    
+    };
     
         this.props.addSong(newSong);
         
@@ -40,7 +39,6 @@ class SongForm extends React.Component {
           genre: "",
           rating: "",
         });
-        
       }
       
 

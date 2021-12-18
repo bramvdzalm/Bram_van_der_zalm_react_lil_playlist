@@ -1,6 +1,7 @@
 import React from "react";
 
 const Song = (props) => {
+
   const {title, artist, genre, rating} = props.song;
 
   return (

@@ -30,12 +30,30 @@ class SongOverview extends React.Component {
           songs: [...this.state.songs].concat([song]),
         });
       };
-  
+
+    sortTitle = () => {
+        let songs = [...this.state.songs];
+        let sortedSongs = songs.sort((a, b) =>
+          a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1
+        );
+        this.setState({
+          songs: sortedSongs,
+        });
+      };
+    
+    sortRating = () =>{
+        let songs = [...this.state.songs]
+        let sortedSongs = songs.sort((a,b) => b.rating - a.rating)
+        this.setState({
+            songs: sortedSongs
+        })
+    }
+
     render() {
       return (
         <div>                     
           <SongForm addSong={this.addSong} />
-          <SongList songs={this.state.songs}/>
+          <SongList songs={this.state.songs} sortTitle={this.sortTitle} sortRating={this.sortRating}/>
         </div>
       );
     }

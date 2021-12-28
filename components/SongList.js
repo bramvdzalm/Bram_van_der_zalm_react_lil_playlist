@@ -8,6 +8,7 @@ const SongList = (props) => {
 
                 <button onClick={() => props.sortTitle()}>Sort (A-Z){" "}</button>
                 <button onClick={() => props.sortRating()}>Sort (Rating)</button>
+                
 
                 <table style={{width: "100%"}}>
 
@@ -19,7 +20,7 @@ const SongList = (props) => {
                     </tr>
 
                     {props.songs.map((item) => (
-                        <Song song={item} key={item.id}/>
+                        <Song song={item} key={item.id} deleteItem={props.deleteItem}/>
                         ))}
 
                 </table>

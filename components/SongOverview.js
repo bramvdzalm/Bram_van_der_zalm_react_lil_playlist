@@ -32,20 +32,30 @@ class SongOverview extends React.Component {
       };
 
     sortTitle = () => {
-        let songs = [...this.state.songs];
+        let songs = [...this.state.songs]
         let sortedSongs = songs.sort((a, b) =>
-          a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1
-        );
+          a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1)
+
         this.setState({
           songs: sortedSongs,
         });
       };
     
-    sortRating = () =>{
+    sortRating = () => {
         let songs = [...this.state.songs]
         let sortedSongs = songs.sort((a,b) => b.rating - a.rating)
+
         this.setState({
             songs: sortedSongs
+        })
+    }
+
+    deleteItem = (id) => {
+      let newList = [...this.state.songs];
+      let pos = newList.indexOf(id);
+      newList.splice(pos,1);
+      this.setState({
+        songs: newList
         })
     }
 
@@ -53,7 +63,11 @@ class SongOverview extends React.Component {
       return (
         <div>                     
           <SongForm addSong={this.addSong} />
-          <SongList songs={this.state.songs} sortTitle={this.sortTitle} sortRating={this.sortRating}/>
+          <SongList songs={this.state.songs} 
+                    sortTitle={this.sortTitle} 
+                    sortRating={this.sortRating}
+                    deleteItem={this.deleteItem}
+                    />
         </div>
       );
     }

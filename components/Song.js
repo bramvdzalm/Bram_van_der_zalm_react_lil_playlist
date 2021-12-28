@@ -10,6 +10,7 @@ const Song = (props) => {
       <td>{artist}</td>
       <td>{genre}</td>
       <td>{rating}</td>
+      <button onClick={() => props.deleteItem()}>Delete</button>
     </tr>
   );
 };

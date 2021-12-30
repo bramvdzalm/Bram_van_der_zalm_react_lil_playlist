@@ -9,7 +9,6 @@ const SongList = (props) => {
                 <button onClick={() => props.sortTitle()}>Sort (A-Z){" "}</button>
                 <button onClick={() => props.sortRating()}>Sort (Rating)</button>
                 
-
                 <table style={{width: "100%"}}>
 
                     <tr className="song-header">  

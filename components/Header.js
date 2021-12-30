@@ -1,10 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-class Header extends React.Component {
+function Header() {
 
-    render(){
-        return <h1>Playlist</h1>
-    }
-}
+        return (
+            <div>
+                <h1>Playlist</h1>
+                <ul>
+                    <Link to='/about'><li>about</li></Link>
+                    <Link to='/'><li>home</li></Link>
+                </ul> 
+        </div>
+        )}
+
 
 export default Header

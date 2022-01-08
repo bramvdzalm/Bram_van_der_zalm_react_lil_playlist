@@ -1,9 +1,12 @@
 import React from 'react';
-import './App.css';
+import './App.css'
+import './header.css';
 import Header from './components/Header';
 import SongOverview from './components/SongOverview'
 import About from './components/About'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+
+
 
 function App() {
   return (
@@ -16,7 +19,7 @@ function App() {
             <Route path='/' element={<SongOverview/>}/>
             <Route path='/about' element={<About/>} />
           </Routes>
-          
+
       </Router>
 
       </div>

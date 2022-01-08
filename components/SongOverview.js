@@ -20,54 +20,85 @@ class SongOverview extends React.Component {
             title: "Cold Heart",
             genre: "Pop",
             rating: "3",
+        },
+          {
+            id: 3,
+            artist: "Eddy M",
+            title: "Really Really Hot",
+            genre: "Tech House",
+            rating: "4",
+        },
+          {
+            id: 4,
+            artist: "Billy Gillies",
+            title: "Nostalgia",
+            genre: "Trance",
+            rating: "1",
         }
         ]
       }
     }
-  
+
     addSong = (song) => {
         this.setState({
           songs: [...this.state.songs].concat([song]),
         });
       };
 
-    sortTitle = () => {
-        let songs = [...this.state.songs]
-        let sortedSongs = songs.sort((a, b) =>
-          a.title.toLowerCase() > b.title.toLowerCase() ? 1 : -1)
-
-        this.setState({
-          songs: sortedSongs,
-        });
-      };
-    
-    sortRating = () => {
-        let songs = [...this.state.songs]
-        let sortedSongs = songs.sort((a,b) => b.rating - a.rating)
-
-        this.setState({
-            songs: sortedSongs
-        })
+    sortArtist = () => {
+      this.setState({
+        songs: this.state.order
+          ? this.state.songs.sort((a, b) => a.artist> b.artist ? 1 : -1)
+          : this.state.songs.reverse((a, b) => b.artist > a.artist ? 1 : -1),
+        order: !this.state.order,
+      });
     }
 
-    deleteItem = (id) => {
-      let newList = [...this.state.songs];
-      let pos = newList.indexOf(id);
-      newList.splice(pos,1);
+    sortTitle = () => {
+      this.setState({
+        songs: this.state.order
+          ? this.state.songs.sort((a, b) => a.title> b.title ? 1 : -1)
+          : this.state.songs.reverse((a, b) => b.title > a.title ? 1 : -1),
+        order: !this.state.order,
+      });
+    }
+
+    sortGenre = () => {
+      this.setState({
+        songs: this.state.order
+          ? this.state.songs.sort((a, b) => a.genre> b.genre ? 1 : -1)
+          : this.state.songs.reverse((a, b) => b.genre > a.genre ? 1 : -1),
+        order: !this.state.order,
+      });
+    }
+
+    sortRating = () => {
+      this.setState({
+        songs: this.state.order
+          ? this.state.songs.sort((a, b) => a.rating> b.rating ? 1 : -1)
+          : this.state.songs.reverse((a, b) => b.rating > a.rating ? 1 : -1),
+        order: !this.state.order
+      });
+    }  
+
+    deleteItem = (index) => {
+      let newList = this.state.songs.filter(item => item.id !== index)
       this.setState({
         songs: newList
-        })
+      })   
     }
 
-    render() {
-      return (
-        <div>                     
-          <SongForm addSong={this.addSong} />
-          <SongList songs={this.state.songs} 
-                    sortTitle={this.sortTitle} 
-                    sortRating={this.sortRating}
-                    deleteItem={this.deleteItem}
-                    />
+      render() {
+        return (
+          <div>                     
+            <SongForm addSong={this.addSong} />
+            <SongList songs={this.state.songs} 
+                      sortTitle={this.sortTitle}
+                      sortArtist={this.sortArtist}                  
+                      sortGenre={this.sortGenre}                                         
+                      sortRating={this.sortRating}                  
+                      deleteItem={this.deleteItem}
+                      />
         </div>
       );
     }

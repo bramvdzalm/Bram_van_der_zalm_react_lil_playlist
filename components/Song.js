@@ -1,16 +1,17 @@
 import React from "react";
+import { FaTimes } from "react-icons/fa"
 
 const Song = (props) => {
 
-  const {title, artist, genre, rating} = props.song;
+  const {id, title, artist, genre, rating} = props.song;
 
   return (
     <tr>
-      <td>{title}</td>
       <td>{artist}</td>
+      <td>{title}</td>
       <td>{genre}</td>
       <td>{rating}</td>
-      <button onClick={() => props.deleteItem()}>Delete</button>
+      <p className="song-icon-delete" onClick={() => props.deleteItem(id)}><FaTimes/></p>
     </tr>
   );
 };

@@ -1,16 +1,18 @@
 import React from "react";
+import { FaInfoCircle, FaHome, FaCompactDisc } from "react-icons/fa"
 import { Link } from "react-router-dom";
 
 function Header() {
 
         return (
-            <div>
-                <h1>Playlist</h1>
-                <ul>
-                    <Link to='/about'><li>about</li></Link>
-                    <Link to='/'><li>home</li></Link>
-                </ul> 
-        </div>
+            <div className="header-container">
+                <p className="header-icon-disc"><FaCompactDisc /></p>
+                <h1 className="header-text">Playlist</h1>
+                <div className="header-icon-container">
+                    <Link to='/about'><p className="header-icon"><FaInfoCircle /></p></Link>
+                    <Link to='/'><p className="header-icon"><FaHome /></p></Link>
+                </div>
+            </div>
         )}
 
 

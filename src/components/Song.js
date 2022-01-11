@@ -6,13 +6,15 @@ const Song = (props) => {
   const {id, title, artist, genre, rating} = props.song;
 
   return (
-    <tr>
-      <td>{artist}</td>
-      <td>{title}</td>
-      <td>{genre}</td>
-      <td>{rating}</td>
-      <p className="song-icon-delete" onClick={() => props.deleteItem(id)}><FaTimes/></p>
-    </tr>
+    <tbody>
+        <tr>
+          <td>{artist}</td>
+          <td>{title}</td>
+          <td>{genre}</td>
+          <td>{rating}</td>
+          <td className="song-icon-delete" onClick={() => props.deleteItem(id)}><FaTimes/></td>
+        </tr>
+    </tbody>
   );
 };
 

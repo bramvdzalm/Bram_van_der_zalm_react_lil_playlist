@@ -9,6 +9,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   flex-wrap: nowrap;
+  gap: 5px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -53,6 +54,15 @@
 
 .about-ul {
   list-style: circle;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  padding: 3px;
 }
 
 
